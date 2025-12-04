@@ -2,7 +2,7 @@
 import React from 'react';
 import { Gamepad2, Twitter, Github, Mail } from 'lucide-react';
 import { LanguageCode } from '../types';
-import { ORGANIZATION_NAMES } from '../constants';
+import { ORGANIZATION_NAMES, APP_VERSION } from '../constants';
 
 interface FooterProps {
     currentLang: LanguageCode;
@@ -64,7 +64,11 @@ const Footer: React.FC<FooterProps> = ({ currentLang }) => {
         
         <div className="border-t border-white/5 pt-8 text-center text-xs text-gray-600 flex flex-col md:flex-row justify-between items-center gap-2">
           <p>&copy; {new Date().getFullYear()} {ORGANIZATION_NAMES['en']}.</p>
-          <p>NAIGA - Connecting Creativity Across Borders</p>
+          <div className="flex items-center gap-4">
+            <span>v{APP_VERSION} Beta</span>
+            <span className="hidden md:inline">|</span>
+            <span>NAIGA - Connecting Creativity Across Borders</span>
+          </div>
         </div>
       </div>
     </footer>
