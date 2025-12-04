@@ -1,4 +1,47 @@
-import { Game, Country, Event, MarketData, BlogPost } from './types';
+import { Game, Country, Event, MarketData, BlogPost, RegionInfo } from './types';
+
+export const REGION_DATA: RegionInfo[] = [
+  {
+    id: 'kr',
+    name: '韩国',
+    code: 'KR',
+    description: '全球竞争最激烈的市场之一，拥有独特的美术审美与高度发达的移动端生态。',
+    stats: '150+ 成员',
+    color: 'border-blue-500/50 text-blue-400'
+  },
+  {
+    id: 'jp',
+    name: '日本',
+    code: 'JP',
+    description: '独立游戏文化的圣地，拥有深厚的同人文化基础与主机游戏开发传统。',
+    stats: '200+ 成员',
+    color: 'border-pink-500/50 text-pink-400'
+  },
+  {
+    id: 'cn',
+    name: '中国',
+    code: 'CN',
+    description: '庞大的单一市场与快速崛起的技术力量，类型多元化，Steam 份额激增。',
+    stats: '300+ 成员',
+    color: 'border-red-500/50 text-red-400'
+  },
+  {
+    id: 'ru',
+    name: '俄罗斯',
+    code: 'RU',
+    description: '硬核技术的代表，擅长沉浸式叙事与复杂的系统设计，拥有极客精神。',
+    stats: '80+ 成员',
+    color: 'border-indigo-500/50 text-indigo-400'
+  },
+  {
+    id: 'mn',
+    name: '蒙古',
+    code: 'MN',
+    description: '东北亚的新兴力量，正在将独特的游牧文化与现代交互叙事相结合。',
+    stats: '20+ 成员',
+    color: 'border-yellow-500/50 text-yellow-400'
+  }
+];
 
 export const FEATURED_GAMES: Game[] = [
   {

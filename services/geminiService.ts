@@ -1,11 +1,21 @@
 import { GoogleGenAI } from "@google/genai";
+import { LanguageCode } from '../types';
 
 // Ensure API Key is available
 const apiKey = process.env.API_KEY || '';
 
 const ai = new GoogleGenAI({ apiKey });
 
-export const generateAssistantResponse = async (userMessage: string): Promise<string> => {
+const LANGUAGE_INSTRUCTIONS: Record<LanguageCode, string> = {
+  zh: "请始终使用中文回答，除非用户要求其他语言。",
+  en: "Please answer in English.",
+  ko: "한국어로 대답해 주세요.",
+  ja: "日本語で答えてください。",
+  ru: "Пожалуйста, отвечайте на русском языке.",
+  mn: "Монгол хэлээр хариулна уу."
+};
+
+export const generateAssistantResponse = async (userMessage: string, lang: LanguageCode = 'zh'): Promise<string> => {
   try {
     if (!apiKey) {
         return "请在环境中配置 API_KEY 以使用 AI 助手功能。";
@@ -18,8 +28,9 @@ export const generateAssistantResponse = async (userMessage: string): Promise<st
         systemInstruction: `你是一个东北亚独立游戏联盟（NAIGA）的智能助手。
         你的任务是帮助独立游戏开发者解决关于市场推广、本地化（中日韩）、技术栈选择以及发行相关的问题。
         请用专业、鼓励且简洁的语气回答。
-        如果被问及特定国家（中国、日本、韩国）的市场趋势，请提供基于常识的行业见解。
-        语言：请始终使用中文回答，除非用户特别要求使用其他语言。`,
+        如果被问及特定国家（中国、日本、韩国、俄罗斯、蒙古）的市场趋势，请提供基于常识的行业见解。
+        
+        当前语言设置：${LANGUAGE_INSTRUCTIONS[lang]}`,
       }
     });
 

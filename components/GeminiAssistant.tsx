@@ -1,9 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, Bot, Loader2 } from 'lucide-react';
-import { ChatMessage } from '../types';
+import { ChatMessage, LanguageCode } from '../types';
 import { generateAssistantResponse } from '../services/geminiService';
 
-const GeminiAssistant: React.FC = () => {
+interface GeminiAssistantProps {
+  currentLang: LanguageCode;
+}
+
+const GeminiAssistant: React.FC<GeminiAssistantProps> = ({ currentLang }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
     { id: 'init', role: 'model', text: '你好！我是 NAIGA 智能助手。关于独立游戏出海、本地化或寻找合作伙伴，有什么我可以帮你的吗？' }
@@ -12,6 +16,9 @@ const GeminiAssistant: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  // Reset/Welcome message could be localized in a real app, 
+  // but for now we keep the initial static, and future responses will adapt.
+  
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -28,7 +35,8 @@ const GeminiAssistant: React.FC = () => {
     setInput('');
     setIsLoading(true);
 
-    const responseText = await generateAssistantResponse(input);
+    // Pass current language to the service
+    const responseText = await generateAssistantResponse(input, currentLang);
     
     const botMsg: ChatMessage = { id: (Date.now() + 1).toString(), role: 'model', text: responseText };
     setMessages(prev => [...prev, botMsg]);
@@ -77,7 +85,7 @@ const GeminiAssistant: React.FC = () => {
             <div className="flex justify-start">
                <div className="bg-white/10 text-gray-200 rounded-lg p-3 flex items-center gap-2">
                   <Loader2 className="w-4 h-4 animate-spin" />
-                  <span className="text-xs">思考中...</span>
+                  <span className="text-xs">Thinking...</span>
                </div>
             </div>
           )}
@@ -92,7 +100,7 @@ const GeminiAssistant: React.FC = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-              placeholder="询问关于独立游戏的问题..."
+              placeholder="Ask a question..."
               className="flex-1 bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-neon-blue/50"
             />
             <button 

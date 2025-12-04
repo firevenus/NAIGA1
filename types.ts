@@ -2,8 +2,12 @@ export enum Country {
   CN = 'China',
   JP = 'Japan',
   KR = 'Korea',
+  RU = 'Russia',
+  MN = 'Mongolia',
   OTHER = 'Other'
 }
+
+export type LanguageCode = 'en' | 'ko' | 'ja' | 'zh' | 'ru' | 'mn';
 
 export interface Game {
   id: string;
@@ -47,4 +51,13 @@ export interface BlogPost {
   category: BlogCategory;
   summary: string;
   imageUrl: string;
+}
+
+export interface RegionInfo {
+  id: string;
+  name: string;
+  code: string;
+  description: string;
+  stats: string;
+  color: string;
 }
