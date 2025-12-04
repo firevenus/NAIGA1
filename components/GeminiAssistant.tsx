@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, Bot, Loader2 } from 'lucide-react';
 import { ChatMessage, LanguageCode } from '../types';
@@ -10,7 +11,11 @@ interface GeminiAssistantProps {
 const GeminiAssistant: React.FC<GeminiAssistantProps> = ({ currentLang }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
-    { id: 'init', role: 'model', text: '你好！我是 NAIGA 智能助手。关于独立游戏出海、本地化或寻找合作伙伴，有什么我可以帮你的吗？' }
+    { 
+        id: 'init', 
+        role: 'model', 
+        text: '你好！我是 NAIGA 智能助手。关于独立游戏出海、本地化或寻找合作伙伴，有什么我可以帮你的吗？如有具体合作意向，也可直接发送邮件至 contact@naiga.org' 
+    }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);

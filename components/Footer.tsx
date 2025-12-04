@@ -54,11 +54,11 @@ const Footer: React.FC<FooterProps> = ({ currentLang }) => {
             <div className="flex gap-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors"><Twitter className="w-5 h-5" /></a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors"><Github className="w-5 h-5" /></a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors"><Mail className="w-5 h-5" /></a>
+              <a href="mailto:contact@naiga.org" className="text-gray-400 hover:text-white transition-colors"><Mail className="w-5 h-5" /></a>
             </div>
-            <div className="mt-4 text-sm text-gray-500">
+            <a href="mailto:contact@naiga.org" className="mt-4 block text-sm text-gray-500 hover:text-neon-blue transition-colors">
                 contact@naiga.org
-            </div>
+            </a>
           </div>
         </div>
         

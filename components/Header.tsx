@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { Menu, X, Globe, Gamepad2, ChevronDown } from 'lucide-react';
 import { LanguageCode } from '../types';
@@ -113,9 +114,9 @@ const Header: React.FC<HeaderProps> = ({ currentLang, setLang }) => {
                 )}
              </div>
 
-             <button className="bg-white text-black hover:bg-neon-blue transition-colors px-4 py-1.5 rounded-full text-sm font-bold">
+             <a href="#about" className="bg-white text-black hover:bg-neon-blue transition-colors px-4 py-1.5 rounded-full text-sm font-bold">
                 {t.join}
-             </button>
+             </a>
           </div>
 
           <div className="-mr-2 flex md:hidden items-center gap-4">
@@ -155,9 +156,9 @@ const Header: React.FC<HeaderProps> = ({ currentLang, setLang }) => {
                 {link.name}
               </a>
             ))}
-            <button className="w-full text-left text-neon-blue px-3 py-2 rounded-md text-base font-medium">
+            <a href="#about" onClick={() => setIsOpen(false)} className="w-full text-left text-neon-blue px-3 py-2 rounded-md text-base font-medium block">
                 {t.join}
-            </button>
+            </a>
           </div>
         </div>
       )}

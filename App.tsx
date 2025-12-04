@@ -9,6 +9,7 @@ import Events from './components/Events';
 import Footer from './components/Footer';
 import GeminiAssistant from './components/GeminiAssistant';
 import NewsBlog from './components/NewsBlog';
+import About from './components/About';
 import { LanguageCode } from './types';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <MarketChart />
         <NewsBlog currentLang={language} />
         <Events />
+        <About currentLang={language} />
       </main>
       <Footer currentLang={language} />
       <GeminiAssistant currentLang={language} />
