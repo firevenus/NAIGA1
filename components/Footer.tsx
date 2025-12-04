@@ -1,7 +1,14 @@
+
 import React from 'react';
 import { Gamepad2, Twitter, Github, Mail } from 'lucide-react';
+import { LanguageCode } from '../types';
+import { ORGANIZATION_NAMES } from '../constants';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+    currentLang: LanguageCode;
+}
+
+const Footer: React.FC<FooterProps> = ({ currentLang }) => {
   return (
     <footer className="bg-black border-t border-white/10 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -9,10 +16,16 @@ const Footer: React.FC = () => {
           <div className="col-span-1 md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
               <Gamepad2 className="text-neon-blue w-6 h-6" />
-              <span className="font-mono font-bold text-xl text-white">NAIGA</span>
+              <div className="flex flex-col">
+                <span className="font-mono font-bold text-xl text-white tracking-tighter">NAIGA</span>
+                <span className="text-[10px] text-gray-500 uppercase tracking-widest">Northeast Asia</span>
+              </div>
             </div>
-            <p className="text-gray-500 text-sm leading-relaxed">
-              东北亚独立游戏联盟致力于构建一个开放、包容的开发者社区，推动区域内独立游戏的繁荣发展。
+            <p className="text-gray-500 text-sm leading-relaxed mb-4">
+              {ORGANIZATION_NAMES[currentLang]}
+            </p>
+             <p className="text-gray-600 text-xs">
+              连接中日韩俄蒙，构建无国界游戏开发生态。
             </p>
           </div>
           
@@ -49,8 +62,9 @@ const Footer: React.FC = () => {
           </div>
         </div>
         
-        <div className="border-t border-white/5 pt-8 text-center text-xs text-gray-600">
-          <p>&copy; 2024 Northeast Asia Indie Game Alliance. All rights reserved.</p>
+        <div className="border-t border-white/5 pt-8 text-center text-xs text-gray-600 flex flex-col md:flex-row justify-between items-center gap-2">
+          <p>&copy; {new Date().getFullYear()} {ORGANIZATION_NAMES['en']}.</p>
+          <p>NAIGA - Connecting Creativity Across Borders</p>
         </div>
       </div>
     </footer>

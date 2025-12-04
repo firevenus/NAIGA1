@@ -1,4 +1,23 @@
-import { Game, Country, Event, MarketData, BlogPost, RegionInfo } from './types';
+
+import { Game, Country, Event, MarketData, BlogPost, RegionInfo, LanguageCode } from './types';
+
+export const ORGANIZATION_NAMES: Record<LanguageCode, string> = {
+  zh: '东北亚独立游戏联盟',
+  en: 'Northeast Asia Indie Game Alliance',
+  ja: '北東アジアインディーゲームアライアンス',
+  ko: '동북아시아 인디 게임 연합',
+  ru: 'Альянс инди-игр Северо-Восточной Азии',
+  mn: 'Зүүн Хойд Азийн Инди Тоглоомын Холбоо'
+};
+
+export const TAGLINES: Record<LanguageCode, string> = {
+  zh: '连接东北亚 · 无国界的创意',
+  en: 'Connecting Northeast Asia · Borderless Creativity',
+  ja: '北東アジアをつなぐ · 国境なき創造性',
+  ko: '동북아시아를 잇다 · 국경 없는 창의성',
+  ru: 'Соединяя Северо-Восточную Азию · Творчество без границ',
+  mn: 'Зүүн Хойд Азийг Холбоно · Хил хязгааргүй Бүтээлч байдал'
+};
 
 export const REGION_DATA: RegionInfo[] = [
   {

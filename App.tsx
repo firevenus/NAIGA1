@@ -18,14 +18,14 @@ function App() {
     <div className="min-h-screen bg-dark-bg text-gray-100 font-sans selection:bg-neon-blue selection:text-black">
       <Header currentLang={language} setLang={setLanguage} />
       <main>
-        <Hero />
+        <Hero currentLang={language} />
         <RegionShowcase />
         <GameGrid />
         <MarketChart />
         <NewsBlog currentLang={language} />
         <Events />
       </main>
-      <Footer />
+      <Footer currentLang={language} />
       <GeminiAssistant currentLang={language} />
     </div>
   );
