@@ -1,3 +1,4 @@
+
 export enum Country {
   CN = 'China',
   JP = 'Japan',
@@ -43,13 +44,16 @@ export interface MarketData {
 
 export type BlogCategory = '联盟动态' | '行业深度' | '成员故事' | '开发技术';
 
+// Helper type for localized content
+export type LocalizedString = string | Record<LanguageCode, string>;
+
 export interface BlogPost {
   id: string;
-  title: string;
+  title: LocalizedString; // Changed to support multi-language
   author: string;
   date: string;
   category: BlogCategory;
-  summary: string;
+  summary: LocalizedString; // Changed to support multi-language
   imageUrl: string;
 }
 

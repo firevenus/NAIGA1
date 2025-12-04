@@ -1,3 +1,4 @@
+
 import { GoogleGenAI } from "@google/genai";
 import { LanguageCode } from '../types';
 
@@ -40,3 +41,43 @@ export const generateAssistantResponse = async (userMessage: string, lang: Langu
     return "系统繁忙，请检查网络连接或 API Key 配置。";
   }
 };
+
+export const translatePost = async (title: string, content: string): Promise<{ titles: Record<LanguageCode, string>, summaries: Record<LanguageCode, string> } | null> => {
+    if (!apiKey) return null;
+
+    const prompt = `
+    You are a professional localization engine for the Northeast Asia Indie Game Alliance.
+    
+    Task:
+    1. Translate the provided Title and Content into the following 6 languages: English (en), Chinese (zh), Japanese (ja), Korean (ko), Russian (ru), Mongolian (mn).
+    2. For the 'content', create a concise 2-sentence summary in each language.
+    3. Return ONLY a valid JSON object with no markdown formatting.
+
+    Input Title: "${title}"
+    Input Content: "${content}"
+
+    Output Format (JSON):
+    {
+        "titles": { "en": "...", "zh": "...", "ja": "...", "ko": "...", "ru": "...", "mn": "..." },
+        "summaries": { "en": "...", "zh": "...", "ja": "...", "ko": "...", "ru": "...", "mn": "..." }
+    }
+    `;
+
+    try {
+        const response = await ai.models.generateContent({
+            model: 'gemini-2.5-flash',
+            contents: prompt,
+            config: {
+                responseMimeType: 'application/json'
+            }
+        });
+        
+        const text = response.text;
+        if (!text) return null;
+        
+        return JSON.parse(text);
+    } catch (error) {
+        console.error("Translation Error:", error);
+        return null;
+    }
+}
