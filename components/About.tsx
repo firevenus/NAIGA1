@@ -2,7 +2,6 @@
 import React from 'react';
 import { Mail, Globe, ArrowRight, Shield, Zap, Users } from 'lucide-react';
 import { LanguageCode } from '../types';
-import { ORGANIZATION_NAMES } from '../constants';
 
 interface AboutProps {
     currentLang: LanguageCode;

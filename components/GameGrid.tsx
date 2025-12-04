@@ -1,13 +1,16 @@
+
 import React from 'react';
 import { FEATURED_GAMES } from '../constants';
 import { Tag } from 'lucide-react';
 import { Country } from '../types';
 
 const CountryBadge: React.FC<{ country: Country }> = ({ country }) => {
-    const colors = {
+    const colors: Record<Country, string> = {
         [Country.CN]: 'bg-red-500/20 text-red-300 border-red-500/30',
         [Country.JP]: 'bg-white/20 text-white border-white/30',
         [Country.KR]: 'bg-blue-500/20 text-blue-300 border-blue-500/30',
+        [Country.RU]: 'bg-indigo-500/20 text-indigo-300 border-indigo-500/30',
+        [Country.MN]: 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30',
         [Country.OTHER]: 'bg-gray-500/20 text-gray-300',
     };
 
