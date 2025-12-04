@@ -13,6 +13,7 @@
 - **Charts**: Recharts
 - **AI Integration**: Google GenAI SDK (Gemini 2.5 Flash)
 - **Build Tool**: Vite
+- **Deployment**: Cloudflare Pages
 
 ## 🚀 快速开始 (Getting Started)
 
@@ -33,36 +34,36 @@ API_KEY=your_google_gemini_api_key
 npm run dev
 ```
 
+### 4. 部署 (Deployment)
+
+项目预配置了 Cloudflare Pages 部署脚本。
+
+1. 登录 Cloudflare (如果尚未登录):
+```bash
+npx wrangler login
+```
+
+2. 构建并部署:
+```bash
+npm run deploy
+```
+
 ---
 
 ## 📅 更新日志 (Update Log)
 
-### v0.0.6 - 联系方式与关于页面增强 (Contact & About)
-- **新增**: `About` 组件，详细展示联盟愿景、服务内容及联系方式。
-- **优化**: 全局集成 `contact@naiga.org` 官方邮箱，支持点击直接发信。
-- **交互**: 导航栏 "加入联盟" 按钮现在平滑滚动至联系板块。
-- **AI**: 更新 Gemini 助手欢迎语，增加人工客服指引。
+### v0.0.1 - 初始测试版发布 (Initial Beta Release)
 
-### v0.0.5 - 品牌国际化与视觉升级 (Branding & Localization)
-- **视觉**: 在 Hero 区域增加巨大的 "NAIGA" 水印背景，强化品牌认知。
-- **多语言**: 实现了组织名称（Organization Name）和口号（Tagline）的 6 国语言动态切换。
-- **页脚**: 更新页脚版权信息，确保在非英语环境下同时展示英文全称以体现国际化。
+**发布日期**: 2024-05-20
 
-### v0.0.4 - AI 驱动的新闻投稿系统 (AI Translation Workflow)
-- **功能**: 新增成员新闻投稿模态框 (`NewsBlog` 组件)。
-- **AI**: 集成 Gemini API 的翻译功能，将用户提交的单一语言内容自动翻译为 EN/ZH/JA/KO/RU/MN 六种语言。
-- **数据**: 升级 `BlogPost` 数据结构，支持多语言标题和摘要存储。
-
-### v0.0.3 - 多语言架构支持 (Multi-language Architecture)
-- **架构**: 在 `App.tsx` 提升语言状态管理 (`LanguageCode`)。
-- **UI**: 导航栏新增语言切换下拉菜单，支持 6 种语言 (英/中/日/韩/俄/蒙)。
-- **AI**: 更新 `geminiService`，使 AI 助手能够根据当前网站语言设置自动调整回复语言。
-
-### v0.0.2 - 区域展示板块 (Region Showcase)
-- **新增**: `RegionShowcase` 组件，横向展示 CN, JP, KR, RU, MN 五国市场概况。
-- **视觉**: 为每个国家配置了专属的主题色（如：中国红、日本粉、韩国蓝等）和悬停光效。
-
-### v0.0.1 - 初始化发布 (Initial Release)
-- **核心组件**: Hero, GameGrid, MarketChart (Recharts), Events, Footer.
-- **AI 助手**: 集成悬浮式 Gemini 聊天机器人。
-- **基础样式**: 确立赛博朋克/暗黑风格 UI (Tailwind)。
+**核心功能 (Core Features):**
+- **多语言门户 (Multilingual Portal)**: 完整支持中、英、日、韩、俄、蒙 6 种语言，包括 UI、导航及动态内容的实时切换。
+- **AI 智能中枢 (AI Integration)**:
+  - **新闻自动本地化**: 成员提交新闻时，通过 Gemini API 自动翻译成所有支持语言。
+  - **智能助手**: 内置悬浮聊天机器人，提供行业咨询和网站导航服务。
+- **区域展示 (Region Showcase)**: 可视化展示东北亚五国（CN, JP, KR, RU, MN）的游戏市场概况与特色。
+- **数据可视化 (Data Viz)**: 集成 Recharts 展示区域市场增长趋势。
+- **成员服务 (Member Services)**:
+  - 新闻与博客投稿系统。
+  - 集成 `contact@naiga.org` 官方联络通道与 "About" 详细介绍页。
+- **视觉体验 (Visuals)**: 赛博朋克/暗黑风格设计，适配移动端与桌面端，Hero 区域包含动态光效与品牌水印。

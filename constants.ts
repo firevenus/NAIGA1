@@ -1,7 +1,7 @@
 
 import { Game, Country, Event, MarketData, BlogPost, RegionInfo, LanguageCode } from './types';
 
-export const APP_VERSION = '0.0.6';
+export const APP_VERSION = '0.0.1';
 
 export const ORGANIZATION_NAMES: Record<LanguageCode, string> = {
   zh: '东北亚独立游戏联盟',
