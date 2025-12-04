@@ -4,7 +4,6 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import RegionShowcase from './components/RegionShowcase';
 import GameGrid from './components/GameGrid';
-import MarketChart from './components/MarketChart';
 import Events from './components/Events';
 import Footer from './components/Footer';
 import GeminiAssistant from './components/GeminiAssistant';
@@ -22,7 +21,6 @@ function App() {
         <Hero currentLang={language} />
         <RegionShowcase />
         <GameGrid />
-        <MarketChart />
         <NewsBlog currentLang={language} />
         <Events />
         <About currentLang={language} />

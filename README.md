@@ -36,17 +36,18 @@ npm run dev
 
 ### 4. 部署 (Deployment)
 
-项目预配置了 Cloudflare Pages 部署脚本。
+本项目推荐使用 **Cloudflare Pages** 进行 Git 自动化部署：
 
-1. 登录 Cloudflare (如果尚未登录):
-```bash
-npx wrangler login
-```
-
-2. 构建并部署:
-```bash
-npm run deploy
-```
+1. 将代码推送到 GitHub 或 GitLab。
+2. 登录 Cloudflare Dashboard，进入 **Workers & Pages**。
+3. 点击 **Create application** -> **Pages** -> **Connect to Git**。
+4. 选择你的仓库。
+5. 配置构建设置 (Build settings)：
+   - **Framework preset**: Vite
+   - **Build command**: `npm run build`
+   - **Build output directory**: `dist`
+6. 在 **Environment variables** (环境变量) 中添加：
+   - `API_KEY`: 你的 Google Gemini API Key
 
 ---
 
@@ -62,7 +63,6 @@ npm run deploy
   - **新闻自动本地化**: 成员提交新闻时，通过 Gemini API 自动翻译成所有支持语言。
   - **智能助手**: 内置悬浮聊天机器人，提供行业咨询和网站导航服务。
 - **区域展示 (Region Showcase)**: 可视化展示东北亚五国（CN, JP, KR, RU, MN）的游戏市场概况与特色。
-- **数据可视化 (Data Viz)**: 集成 Recharts 展示区域市场增长趋势。
 - **成员服务 (Member Services)**:
   - 新闻与博客投稿系统。
   - 集成 `contact@naiga.org` 官方联络通道与 "About" 详细介绍页。

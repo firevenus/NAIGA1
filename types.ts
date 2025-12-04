@@ -1,4 +1,5 @@
 
+
 export enum Country {
   CN = 'China',
   JP = 'Japan',
@@ -33,13 +34,6 @@ export interface ChatMessage {
   role: 'user' | 'model';
   text: string;
   isThinking?: boolean;
-}
-
-export interface MarketData {
-  year: string;
-  cn: number;
-  jp: number;
-  kr: number;
 }
 
 export type BlogCategory = '联盟动态' | '行业深度' | '成员故事' | '开发技术';

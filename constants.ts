@@ -1,5 +1,6 @@
 
-import { Game, Country, Event, MarketData, BlogPost, RegionInfo, LanguageCode } from './types';
+
+import { Game, Country, Event, BlogPost, RegionInfo, LanguageCode } from './types';
 
 export const APP_VERSION = '0.0.1';
 
@@ -125,14 +126,6 @@ export const UPCOMING_EVENTS: Event[] = [
     location: 'Seoul, Gangnam',
     type: 'Meetup'
   }
-];
-
-export const MARKET_TRENDS: MarketData[] = [
-  { year: '2020', cn: 200, jp: 350, kr: 150 },
-  { year: '2021', cn: 280, jp: 380, kr: 190 },
-  { year: '2022', cn: 450, jp: 410, kr: 240 },
-  { year: '2023', cn: 600, jp: 450, kr: 310 },
-  { year: '2024', cn: 850, jp: 500, kr: 380 },
 ];
 
 export const BLOG_POSTS: BlogPost[] = [

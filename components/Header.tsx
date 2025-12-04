@@ -9,12 +9,12 @@ interface HeaderProps {
 }
 
 const NAV_LABELS: Record<LanguageCode, Record<string, string>> = {
-  zh: { home: '首页', games: '游戏展示', market: '市场趋势', news: '新闻博客', events: '活动', about: '关于我们', join: '加入联盟' },
-  en: { home: 'Home', games: 'Games', market: 'Market', news: 'News', events: 'Events', about: 'About', join: 'Join' },
-  ko: { home: '홈', games: '게임', market: '시장', news: '뉴스', events: '이벤트', about: '소개', join: '가입' },
-  ja: { home: 'ホーム', games: 'ゲーム', market: '市場', news: 'ニュース', events: 'イベント', about: '概要', join: '加盟' },
-  ru: { home: 'Главная', games: 'Игры', market: 'Рынок', news: 'Новости', events: 'События', about: 'О нас', join: 'Вступить' },
-  mn: { home: 'Нүүр', games: 'Тоглоом', market: 'Зах зээл', news: 'Мэдээ', events: 'Үйл явдал', about: 'Бидний тухай', join: 'Элсэх' },
+  zh: { home: '首页', games: '游戏展示', news: '新闻博客', events: '活动', about: '关于我们', join: '加入联盟' },
+  en: { home: 'Home', games: 'Games', news: 'News', events: 'Events', about: 'About', join: 'Join' },
+  ko: { home: '홈', games: '게임', news: '뉴스', events: '이벤트', about: '소개', join: '가입' },
+  ja: { home: 'ホーム', games: 'ゲーム', news: 'ニュース', events: 'イベント', about: '概要', join: '加盟' },
+  ru: { home: 'Главная', games: 'Игры', news: 'Новости', events: 'События', about: 'О нас', join: 'Вступить' },
+  mn: { home: 'Нүүр', games: 'Тоглоом', news: 'Мэдээ', events: 'Үйл явдал', about: 'Бидний тухай', join: 'Элсэх' },
 };
 
 const LANGUAGES: { code: LanguageCode; label: string; native: string }[] = [
@@ -36,7 +36,6 @@ const Header: React.FC<HeaderProps> = ({ currentLang, setLang }) => {
   const navLinks = [
     { name: t.home, href: '#hero' },
     { name: t.games, href: '#games' },
-    { name: t.market, href: '#market' },
     { name: t.news, href: '#news' },
     { name: t.events, href: '#events' },
     { name: t.about, href: '#about' },
