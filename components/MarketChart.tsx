@@ -18,7 +18,7 @@ const MarketChart: React.FC = () => {
                 <ul className="space-y-4">
                     <li className="flex items-center gap-3">
                         <div className="w-3 h-3 rounded-full bg-red-500" />
-                        <span className="text-gray-300">中国市场规模年增长率 > 25%</span>
+                        <span className="text-gray-300">中国市场规模年增长率 &gt; 25%</span>
                     </li>
                     <li className="flex items-center gap-3">
                         <div className="w-3 h-3 rounded-full bg-white" />
