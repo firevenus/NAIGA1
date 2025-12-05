@@ -1,8 +1,8 @@
 
 
-import { Game, Country, Event, BlogPost, RegionInfo, LanguageCode } from './types';
+import { Game, Country, Event, BlogPost, RegionInfo, LanguageCode, Member } from './types';
 
-export const APP_VERSION = '0.0.2';
+export const APP_VERSION = '0.0.3';
 
 export const ORGANIZATION_NAMES: Record<LanguageCode, string> = {
   zh: '东北亚独立游戏联盟',
@@ -62,6 +62,51 @@ export const REGION_DATA: RegionInfo[] = [
     description: '东北亚的新兴力量，正在将独特的游牧文化与现代交互叙事相结合。',
     stats: '20+ 成员',
     color: 'border-yellow-500/50 text-yellow-400'
+  }
+];
+
+export const MEMBERS: Member[] = [
+  {
+    id: 'm_naiga',
+    name: { zh: 'NAIGA 秘书处', en: 'NAIGA Secretariat' },
+    country: Country.OTHER,
+    description: { zh: '联盟官方管理机构，负责活动组织与资源对接。', en: 'Official governing body of the alliance.' },
+    logoUrl: 'https://ui-avatars.com/api/?name=NAIGA&background=0aff68&color=000'
+  },
+  {
+    id: 'm_reddragon',
+    name: { zh: '赤龙工作室', en: 'Red Dragon Studio' },
+    country: Country.CN,
+    description: { zh: '专注于赛博朋克风格动作游戏的中国独立开发团队。', en: 'Chinese indie team focused on cyberpunk action games.' },
+    logoUrl: 'https://ui-avatars.com/api/?name=RD&background=ff0000&color=fff'
+  },
+  {
+    id: 'm_kyoto',
+    name: { zh: '京都像素', en: 'Kyoto Pixels' },
+    country: Country.JP,
+    description: { zh: '来自日本京都的像素艺术职人团队，擅长经营模拟。', en: 'Pixel art artisans from Kyoto, Japan.' },
+    logoUrl: 'https://ui-avatars.com/api/?name=KP&background=ffc0cb&color=000'
+  },
+  {
+    id: 'm_seoul',
+    name: { zh: '首尔未来实验室', en: 'Seoul Future Lab' },
+    country: Country.KR,
+    description: { zh: '韩国前沿叙事游戏探索者。', en: 'Korean explorers of narrative frontiers.' },
+    logoUrl: 'https://ui-avatars.com/api/?name=SF&background=0000ff&color=fff'
+  },
+  {
+    id: 'm_siberia',
+    name: { zh: '西伯利亚代码', en: 'Siberia Code' },
+    country: Country.RU,
+    description: { zh: '来自俄罗斯的硬核科幻游戏开发者。', en: 'Hardcore sci-fi developers from Russia.' },
+    logoUrl: 'https://ui-avatars.com/api/?name=SC&background=4b0082&color=fff'
+  },
+  {
+    id: 'm_steppe',
+    name: { zh: '草原狼互动', en: 'Steppe Wolf Interactive' },
+    country: Country.MN,
+    description: { zh: '蒙古国新兴独立游戏力量，致力于传播游牧文化。', en: 'Emerging indie power from Mongolia.' },
+    logoUrl: 'https://ui-avatars.com/api/?name=SW&background=ffd700&color=000'
   }
 ];
 
@@ -131,6 +176,7 @@ export const UPCOMING_EVENTS: Event[] = [
 export const BLOG_POSTS: BlogPost[] = [
   {
     id: 'b1',
+    memberId: 'm_naiga',
     title: 'NAIGA 2024 年度路线图发布：聚焦跨国发行与本地化支持',
     author: '联盟秘书处',
     date: '2024-03-15',
@@ -140,8 +186,9 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     id: 'b2',
+    memberId: 'm_seoul',
     title: '从独立开发者到独角兽：韩国手游市场的生存法则',
-    author: 'Park Ji-hoon',
+    author: 'Seoul Future Lab',
     date: '2024-03-10',
     category: '行业深度',
     summary: '韩国作为全球竞争最激烈的手游市场之一，独立开发者如何突围？本文深度分析了近年来成功的案例，探讨了小团队如何在巨头林立的市场中寻找细分赛道。',
@@ -149,11 +196,32 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     id: 'b3',
+    memberId: 'm_reddragon',
     title: '专访《霓虹浪人》制作人：如何用代码构建赛博武侠世界',
-    author: 'Tech Weekly',
+    author: 'Red Dragon Studio',
     date: '2024-02-28',
     category: '成员故事',
     summary: 'Red Dragon Studio 的核心成员分享了他们开发《Neon Ronin》的心路历程。从早期的概念设计到美术风格的确立，以及如何平衡动作手感与视觉特效。',
     imageUrl: 'https://picsum.photos/600/400?random=12'
+  },
+  {
+    id: 'b4',
+    memberId: 'm_siberia',
+    title: '在西伯利亚编码：寒冷如何激发硬核系统设计',
+    author: 'Siberia Code',
+    date: '2024-02-15',
+    category: '成员故事',
+    summary: '俄罗斯开发者以其硬核的技术实力著称。Siberia Code 分享了他们如何在极端的环境中保持专注，并构建极其复杂的物理模拟系统。',
+    imageUrl: 'https://picsum.photos/600/400?random=13'
+  },
+  {
+    id: 'b5',
+    memberId: 'm_steppe',
+    title: '数字游牧：将蒙古传统文化融入现代游戏',
+    author: 'Steppe Wolf Interactive',
+    date: '2024-02-01',
+    category: '开发技术',
+    summary: '探索如何通过互动媒体保存和传播非物质文化遗产。我们的新项目尝试将马头琴音乐与节奏游戏机制相结合。',
+    imageUrl: 'https://picsum.photos/600/400?random=14'
   }
 ];

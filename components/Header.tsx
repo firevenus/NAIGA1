@@ -9,12 +9,12 @@ interface HeaderProps {
 }
 
 const NAV_LABELS: Record<LanguageCode, Record<string, string>> = {
-  zh: { home: '首页', games: '游戏展示', news: '新闻博客', events: '活动', about: '关于我们', join: '加入联盟' },
-  en: { home: 'Home', games: 'Games', news: 'News', events: 'Events', about: 'About', join: 'Join' },
-  ko: { home: '홈', games: '게임', news: '뉴스', events: '이벤트', about: '소개', join: '가입' },
-  ja: { home: 'ホーム', games: 'ゲーム', news: 'ニュース', events: 'イベント', about: '概要', join: '加盟' },
-  ru: { home: 'Главная', games: 'Игры', news: 'Новости', events: 'События', about: 'О нас', join: 'Вступить' },
-  mn: { home: 'Нүүр', games: 'Тоглоом', news: 'Мэдээ', events: 'Үйл явдал', about: 'Бидний тухай', join: 'Элсэх' },
+  zh: { home: '首页', games: '游戏展示', news: '联盟成员', events: '活动', about: '关于我们', join: '加入联盟' },
+  en: { home: 'Home', games: 'Games', news: 'Members', events: 'Events', about: 'About', join: 'Join' },
+  ko: { home: '홈', games: '게임', news: '회원', events: '이벤트', about: '소개', join: '가입' },
+  ja: { home: 'ホーム', games: 'ゲーム', news: 'メンバー', events: 'イベント', about: '概要', join: '加盟' },
+  ru: { home: 'Главная', games: 'Игры', news: 'Участники', events: 'События', about: 'О нас', join: 'Вступить' },
+  mn: { home: 'Нүүр', games: 'Тоглоом', news: 'Гишүүд', events: 'Үйл явдал', about: 'Бидний тухай', join: 'Элсэх' },
 };
 
 const LANGUAGES: { code: LanguageCode; label: string; native: string }[] = [
@@ -36,7 +36,7 @@ const Header: React.FC<HeaderProps> = ({ currentLang, setLang }) => {
   const navLinks = [
     { name: t.home, href: '#hero' },
     { name: t.games, href: '#games' },
-    { name: t.news, href: '#news' },
+    { name: t.news, href: '#members' },
     { name: t.events, href: '#events' },
     { name: t.about, href: '#about' },
   ];
@@ -52,6 +52,10 @@ const Header: React.FC<HeaderProps> = ({ currentLang, setLang }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [langMenuRef]);
+
+  const handleJoinClick = () => {
+      window.location.href = "mailto:contact@naiga.org";
+  };
 
   return (
     <header className="fixed top-0 w-full z-50 glass-panel border-b border-white/10">
@@ -113,9 +117,12 @@ const Header: React.FC<HeaderProps> = ({ currentLang, setLang }) => {
                 )}
              </div>
 
-             <a href="#about" className="bg-white text-black hover:bg-neon-blue transition-colors px-4 py-1.5 rounded-full text-sm font-bold">
+             <button 
+                onClick={handleJoinClick}
+                className="bg-white text-black hover:bg-neon-blue transition-colors px-4 py-1.5 rounded-full text-sm font-bold"
+             >
                 {t.join}
-             </a>
+             </button>
           </div>
 
           <div className="-mr-2 flex md:hidden items-center gap-4">
@@ -155,9 +162,12 @@ const Header: React.FC<HeaderProps> = ({ currentLang, setLang }) => {
                 {link.name}
               </a>
             ))}
-            <a href="#about" onClick={() => setIsOpen(false)} className="w-full text-left text-neon-blue px-3 py-2 rounded-md text-base font-medium block">
+            <button 
+                onClick={() => { setIsOpen(false); handleJoinClick(); }}
+                className="w-full text-left text-neon-blue px-3 py-2 rounded-md text-base font-medium block"
+            >
                 {t.join}
-            </a>
+            </button>
           </div>
         </div>
       )}

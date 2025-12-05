@@ -1,5 +1,3 @@
-
-
 export enum Country {
   CN = 'China',
   JP = 'Japan',
@@ -39,15 +37,25 @@ export interface ChatMessage {
 export type BlogCategory = '联盟动态' | '行业深度' | '成员故事' | '开发技术';
 
 // Helper type for localized content
-export type LocalizedString = string | Record<LanguageCode, string>;
+export type LocalizedString = string | Partial<Record<LanguageCode, string>>;
+
+export interface Member {
+  id: string;
+  name: LocalizedString;
+  country: Country;
+  description: LocalizedString;
+  logoUrl: string;
+  website?: string;
+}
 
 export interface BlogPost {
   id: string;
-  title: LocalizedString; // Changed to support multi-language
+  memberId?: string; // Optional linkage to a specific member
+  title: LocalizedString; 
   author: string;
   date: string;
   category: BlogCategory;
-  summary: LocalizedString; // Changed to support multi-language
+  summary: LocalizedString; 
   imageUrl: string;
 }
 

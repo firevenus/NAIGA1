@@ -7,7 +7,7 @@ import GameGrid from './components/GameGrid';
 import Events from './components/Events';
 import Footer from './components/Footer';
 import GeminiAssistant from './components/GeminiAssistant';
-import NewsBlog from './components/NewsBlog';
+import MemberZone from './components/MemberZone';
 import About from './components/About';
 import { LanguageCode } from './types';
 
@@ -20,8 +20,8 @@ function App() {
       <main>
         <Hero currentLang={language} />
         <RegionShowcase />
+        <MemberZone currentLang={language} />
         <GameGrid />
-        <NewsBlog currentLang={language} />
         <Events />
         <About currentLang={language} />
       </main>

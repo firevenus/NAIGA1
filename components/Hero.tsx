@@ -61,12 +61,12 @@ const Hero: React.FC<HeroProps> = ({ currentLang }) => {
           >
             探索游戏 <ArrowRight className="w-4 h-4" />
           </a>
-          <a
-            href="#about"
+          <button
+            onClick={() => window.location.href = "mailto:contact@naiga.org"}
             className="px-8 py-3 border border-gray-600 text-base font-medium rounded-full text-white hover:bg-white/10 transition-all duration-300"
           >
             加入联盟
-          </a>
+          </button>
         </div>
 
         {/* Stats Strip - Integrated with Hero */}
